@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Add the Album class & list and view function below the imports
+# Going to add img later
 class Album:
   def __init__(self, title, band, releaseyear, price):
     self.title = title
@@ -20,7 +21,7 @@ albums = [
 
 # Define the home view
 def home(request):
-  return HttpResponse('<h1>ALBUMS HOME PAGE</h1>')
+  return render(request, 'albums/home.html')
 
 def about(request):
   return render(request, 'about.html')

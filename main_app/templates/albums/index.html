@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Album List</h1>
+<h1 class="album-list-header">Album List</h1>
 
 {% for album in albums %}
   <div class="card">
@@ -10,9 +10,9 @@
       <p>Band: {{ album.band }}</p>
       <p>Release Year: {{ album.releaseyear }}</p>
       {% if album.price > 20 %}
-        <p>Price: ${{ album.price }}</p>
+        <p class="price">Price: ${{ album.price }}</p>
       {% else %}
-        <p>Sold Out!</p>
+        <p class="sold-out">Sold Out!</p>
       {% endif %}
     </div>
   </div>

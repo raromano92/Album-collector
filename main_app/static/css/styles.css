@@ -1,3 +1,51 @@
 body {
-  background-color: grey;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: darkgrey;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+}
+
+.about {
+  color: whitesmoke;
+  font-size: 1.5em;
+}
+
+.about-header {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.album-list-header {
+  color: white;
+}
+
+.sold-out {
+  color: red;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.index-title {
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.index-welcome {
+  color: whitesmoke;
+  text-align: left;
+  margin-top: 15vh;
+}
+
+.price {
+  color: green;
 }
