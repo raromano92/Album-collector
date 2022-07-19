@@ -20,7 +20,7 @@
 			href="{% static 'css/styles.css' %}"
 		/>
 	</head>
-	<body>
+	<body id="body">
 		<header class="navbar-fixed">
 			<nav>
 				<div class="nav-wrapper">
@@ -32,8 +32,9 @@
 						</li>
 					</ul>
 					<ul class="right">
-						<li><a href="/about">About</a></li>
-						<li><a href="/albums">View All My Albums</a></li>
+						<li><a href="{% url 'about' %}">About</a></li>
+						<li><a href="{% url 'albums_create' %}">Add an Album</a></li>
+						<li><a href="{% url 'albums' %}">View All My Albums</a></li>
 					</ul>
 				</div>
 			</nav>

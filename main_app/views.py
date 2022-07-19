@@ -1,23 +1,10 @@
+from ast import Delete
 from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-
-# Add the Album class & list and view function below the imports
-# Going to add img later
-class Album:
-  def __init__(self, title, band, releaseyear, price):
-    self.title = title
-    self.band = band
-    self.releaseyear = releaseyear
-    self.price = price
-
-albums = [
-  Album("Rumours", "Fleetwood Mac", 1977, 30),
-  Album("The Wall", "Pink Floyd", 1979, 40),
-  Album("Ride The Lightning", "Metallica", 1984, 25),
-  Album("Stadium Arcadium", "Red Hot Chilli Peppers", 2006, 15)
-]
+from .models import Album
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Define the home view
 def home(request):
@@ -27,6 +14,24 @@ def about(request):
   return render(request, 'about.html')
 
 def albums_index(request):
+  albums = Album.objects.all()
   return render(request, 'albums/index.html', { 'albums': albums })
+
+def albums_detail(request, album_id):
+  album = Album.objects.get(id=album_id)
+  return render(request, 'albums/detail.html', { 'album': album })
+
+class AlbumCreate(CreateView):
+  model = Album
+  fields = '__all__'
+  
+class AlbumUpdate(UpdateView):
+  model = Album
+  fields = ['band', 'price']
+  
+class AlbumDelete(DeleteView):
+  model = Album
+  success_url = '/albums/'
+  
 
 

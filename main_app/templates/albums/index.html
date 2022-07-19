@@ -4,8 +4,9 @@
 <h1 class="album-list-header">Album List</h1>
 
 {% for album in albums %}
-  <div class="card">
-    <div class="card-content">
+<div class="card">
+  <div class="card-content">
+      <a href="{% url 'detail' album.id %}"
       <span class="card-title"><strong>{{ album.title }}</strong></span>
       <p>Band: {{ album.band }}</p>
       <p>Release Year: {{ album.releaseyear }}</p>
@@ -15,6 +16,7 @@
         <p class="sold-out">Sold Out!</p>
       {% endif %}
     </div>
+  </a>
   </div>
 {% endfor %}
 

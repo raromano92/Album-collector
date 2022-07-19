@@ -1,8 +1,8 @@
-body {
+#body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: darkgrey;
+  background-color: red;
 }
 
 main {
@@ -25,7 +25,7 @@ footer.page-footer {
 }
 
 .album-list-header {
-  color: white;
+  color: whitesmoke;
 }
 
 .sold-out {
@@ -49,3 +49,4 @@ footer.page-footer {
 .price {
   color: green;
 }
+

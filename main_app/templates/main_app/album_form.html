@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+{% if album %}
+<h1>Edit <span class="teal-text">{{ album.title }}</span></h1>
+{% else %}
+<h1>Add an Album</h1>
+{% endif %}
+
+<form action="" method="POST">
+	{% csrf_token %}
+	<table>
+		{{ form.as_table }}
+	</table>
+	<input type="submit" value="Submit" class="btn" />
+</form>
+
+{% endblock %}
