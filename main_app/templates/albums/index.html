@@ -7,11 +7,11 @@
 <div class="card">
   <div class="card-content">
       <a href="{% url 'detail' album.id %}"
-      <span class="card-title"><strong>{{ album.title }}</strong></span>
+      <span class="card-title"><strong id="card-album-title">{{ album.title }}</strong></span>
       <p>Band: {{ album.band }}</p>
       <p>Release Year: {{ album.releaseyear }}</p>
       {% if album.price > 20 %}
-        <p class="price">Price: ${{ album.price }}</p>
+        <p class="price">Price: <span class='amount'>${{ album.price }}</span></p>
       {% else %}
         <p class="sold-out">Sold Out!</p>
       {% endif %}

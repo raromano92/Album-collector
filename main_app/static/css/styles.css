@@ -1,31 +1,36 @@
-#body {
+body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: red;
+  background-color: #e5ecea;
 }
 
 main {
   flex: 1 0 auto;
 }
 
+.nav-wrapper {
+  background-color: #04406d;
+}
+
 footer.page-footer {
   padding-top: 0;
   text-align: right;
+  background-color: #04406d;
 }
 
 .about {
-  color: whitesmoke;
+  color: #ad8961;
   font-size: 1.5em;
 }
 
 .about-header {
-  color: whitesmoke;
+  color: #ad8961;
   text-align: center;
 }
 
 .album-list-header {
-  color: whitesmoke;
+  color: #ad8961;
 }
 
 .sold-out {
@@ -35,18 +40,31 @@ footer.page-footer {
 }
 
 .index-title {
-  color: whitesmoke;
+  color: #ad8961;
   text-align: center;
   margin-top: 10vh;
 }
 
 .index-welcome {
-  color: whitesmoke;
+  color: #ad8961;
   text-align: left;
   margin-top: 15vh;
 }
 
-.price {
-  color: green;
+#card-album-title {
+  margin: 0 auto;
+  color: #292826;
+  font-size: 2rem;
 }
 
+h1 {
+  color: #ad8961;
+}
+
+label {
+  color: #292826;
+}
+
+.amount {
+  color: seagreen;
+}
