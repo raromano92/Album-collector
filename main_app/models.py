@@ -4,8 +4,8 @@ from django.urls import reverse
 # Create your models here.
 
 OPTIONS = (
-    ('Y', 'Yes'),
-    ('N', 'No')
+    (True, 'Yes'),
+    (False,'No')
 )
 
 class Album(models.Model):
@@ -22,11 +22,12 @@ class Album(models.Model):
     
     
 class TrackList(models.Model):
-    track = models.CharField(max_length=100)
+    track = models.CharField('Song', max_length=100)
     single = models.BooleanField(default=False, choices=OPTIONS)
-    order = models.IntegerField()
+    order = models.IntegerField(default=1)
     
+    # create a album_id column in the db
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"{self.get_track_display()} on {self.order}"
+        return f"{self.track} is track number {self.order}"
