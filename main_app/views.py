@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from .models import Album, BandMember
 from .forms import TrackListForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 # Define the home view
@@ -58,7 +58,10 @@ def add_track(request, album_id):
     new_track.save()
   return redirect('detail', album_id=album_id)
 
-class MemberList(ListView):
+class BandMemberList(ListView):
+  model = BandMember
+  
+class BandMemberDetail(DetailView):
   model = BandMember
   
 
