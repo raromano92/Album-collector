@@ -22,9 +22,17 @@ def albums_index(request):
 
 def albums_detail(request, album_id):
   album = Album.objects.get(id=album_id)
+  # Get the bandmembers the album doesn't have...
+  # First, create a list of the member ids that the album DOES have
+  id_list = album.band_members.all().values_list('id')
+  # Now we can query for members whose ids are not in the list using exclude
+  mems_album_doesnt_have = BandMember.objects.exclude(id__in=id_list)
   # instantiate TrackListForm to be rendered in the template
   tracklist_form = TrackListForm()
-  return render(request, 'albums/detail.html', { 'album': album, 'tracklist_form': tracklist_form })
+  return render(request, 'albums/detail.html', {
+    'album': album, 'tracklist_form': tracklist_form,
+    'bandmems': mems_album_doesnt_have
+  })
 
 class AlbumCreate(CreateView):
   model = Album

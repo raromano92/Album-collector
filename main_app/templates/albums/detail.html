@@ -66,6 +66,30 @@
     {% endif %}
   </div>
 
+  <div class="col s6">
+    <h3>Available musicians</h3>
+    {% if bandmems.count %}
+      {% for mem in bandmems.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <strong><span>{{ mem.name }}</strong></span>
+              <span>{{ mem.instrument }}</span>
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{{ album.title }} Band is full!</h5>
+    {% endif %}
+  </div>
+
 <script>
   const selectEl = document.getElementById('id_single');
   M.FormSelect.init(selectEl);
