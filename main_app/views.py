@@ -4,6 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from .models import Album
+from .forms import TrackListForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Define the home view
@@ -19,7 +20,9 @@ def albums_index(request):
 
 def albums_detail(request, album_id):
   album = Album.objects.get(id=album_id)
-  return render(request, 'albums/detail.html', { 'album': album })
+  # instantiate TrackListForm to be rendered in the template
+  tracklist_form = TrackListForm()
+  return render(request, 'albums/detail.html', { 'album': album, 'tracklist_form': tracklist_form })
 
 class AlbumCreate(CreateView):
   model = Album
