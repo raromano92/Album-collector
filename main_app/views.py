@@ -1,5 +1,5 @@
 from ast import Delete
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.http import HttpResponse
@@ -36,5 +36,15 @@ class AlbumDelete(DeleteView):
   model = Album
   success_url = '/albums/'
   
-
+def add_track(request, album_id):
+  # create a ModelForm instance using the data in request.POST
+  form = TrackListForm(request.POST)
+  # validate the form
+  if form.is_valid():
+    # don't save the form to the db until it
+    # has the album_id assigned
+    new_track = form.save(commit=False)
+    new_track.album_id = album_id
+    new_track.save()
+  return redirect('detail', album_id=album_id)
 

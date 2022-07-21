@@ -31,3 +31,7 @@ class TrackList(models.Model):
     
     def __str__(self):
         return f"{self.track} is track number {self.order}"
+    
+     # change the default sort
+    class Meta:
+        ordering = ['order']

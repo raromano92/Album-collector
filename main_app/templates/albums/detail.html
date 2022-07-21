@@ -24,7 +24,7 @@
 		</div>
 	</div>
   <div class="col s6">
-    <form method="POST">
+    <form action="{% url 'add_track' album.id %} "method="POST">
       {% csrf_token %}
       {{ tracklist_form.as_p }}
       <input type="submit" class="btn" value="Add Track">
