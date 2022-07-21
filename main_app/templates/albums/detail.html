@@ -26,13 +26,14 @@
   <div class="col s6">
     <table class="striped">
       <thead>
-        <tr><th>Track #</th><th>Song</th></tr>
+        <tr><th>Track #</th><th>Song</th><th>Single?</th></tr>
       </thead>
       <tbody>
         {% for track in album.tracklist_set.all %}
           <tr>
             <td>{{ track.order }}</td>
             <td>{{ track.track }}</td>
+            <td>{{ track.single }}</td>
           </tr>
         {% endfor %}
       </tbody>
