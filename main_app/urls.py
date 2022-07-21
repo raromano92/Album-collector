@@ -10,4 +10,5 @@ urlpatterns = [
   path('albums/<int:pk>/update', views.AlbumUpdate.as_view(), name='albums_update'),
   path('albums/<int:pk>/delete', views.AlbumDelete.as_view(), name='albums_delete'),
   path('albums/<int:album_id>/add_track/', views.add_track, name='add_track'),
+  path('band_members/', views.MemberList.as_view(), name='bm_index'),
 ]

@@ -8,9 +8,12 @@ OPTIONS = (
     (False,'No')
 )
 
-class BandMembers(models.Model):
-    name: models.CharField(max_length=100)
-    instrument: models.CharField(max_length=50)
+class BandMember(models.Model):
+    name = models.CharField(max_length=100, default="")
+    instrument = models.CharField(max_length=100, default="")
+    
+    def __str__(self):
+        return self.name
 
 class Album(models.Model):
     title = models.CharField(max_length=100)
@@ -18,7 +21,8 @@ class Album(models.Model):
     releaseyear = models.IntegerField()
     price = models.IntegerField()
     # Add the M:M relationship
-    band_members = models.ManyToManyField(BandMembers)
+    band_members = models.ManyToManyField(BandMember)
+    
 
     def __str__(self):
         return self.title

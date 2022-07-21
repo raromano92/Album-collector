@@ -3,9 +3,11 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.http import HttpResponse
-from .models import Album
+from .models import Album, BandMember
 from .forms import TrackListForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
+
 
 # Define the home view
 def home(request):
@@ -47,4 +49,8 @@ def add_track(request, album_id):
     new_track.album_id = album_id
     new_track.save()
   return redirect('detail', album_id=album_id)
+
+class MemberList(ListView):
+  model = BandMember
+  
 
