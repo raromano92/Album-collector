@@ -34,7 +34,7 @@ def albums_detail(request, album_id):
 
 class AlbumCreate(CreateView):
   model = Album
-  fields = '__all__'
+  fields = ['title', 'band', 'releaseyear', 'price']
   
 class AlbumUpdate(UpdateView):
   model = Album
