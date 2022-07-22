@@ -7,12 +7,12 @@
   <div class="col s6 col-offset-3">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ bandmember.name }}</span>
+        <span class="card-title"><strong>{{ bandmember.name }}</strong></span>
         <p>{{ bandmember.instrument }}</p>
       </div>
       <div class="card-action">
-        {% comment %} <a href="{% url 'toys_update' toy.id %}">Edit</a>
-        <a href="{% url 'toys_delete' toy.id %}">Delete</a> {% endcomment %}
+        <a href="{% url 'members_update' bandmember.id %}">Edit</a>
+        {% comment %} <a href="{% url 'toys_delete' toy.id %}">Delete</a> {% endcomment %}
       </div>
     </div>
   </div>
