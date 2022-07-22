@@ -1,13 +1,10 @@
-from ast import Delete
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from django.http import HttpResponse
-from .models import Album, BandMember
 from .forms import TrackListForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-
+from .models import Album, BandMember
 
 # Define the home view
 def home(request):
@@ -30,8 +27,9 @@ def albums_detail(request, album_id):
   # instantiate TrackListForm to be rendered in the template
   tracklist_form = TrackListForm()
   return render(request, 'albums/detail.html', {
-    'album': album, 'tracklist_form': tracklist_form,
-    'bandmems': mems_album_doesnt_have
+    'album': album,
+    'tracklist_form': tracklist_form,
+    'bandmembers': mems_album_doesnt_have
   })
 
 class AlbumCreate(CreateView):
@@ -76,6 +74,6 @@ class BandMemberDelete(DeleteView):
   model = BandMember
   success_url = '/band_members/'
   
-def assoc_mem(request, album_id, bandmember_id):
-  Album.objects.get(id=album_id).bandmembers.add(bandmember_id)
+def assoc_bandmember(request, album_id, bandmember_id):
+  Album.objects.get(id=album_id).band_members.add(bandmember_id)
   return redirect('detail', album_id=album_id)

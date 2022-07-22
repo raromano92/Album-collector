@@ -15,5 +15,5 @@ urlpatterns = [
   path('band_members/create/', views.BandMemberCreate.as_view(), name='members_create'),
   path('band_members/<int:pk>/update/', views.BandMemberUpdate.as_view(), name='members_update'),
   path('band_members/<int:pk>/delete/', views.BandMemberDelete.as_view(), name='members_delete'),
-  
+  path('albums/<int:album_id>/assoc_bandmember/<int:bandmember_id>/', views.assoc_bandmember, name='assoc_bandmember')
 ]

@@ -68,8 +68,8 @@
 
   <div class="col s6">
     <h3>Available musicians</h3>
-    {% if bandmems.count %}
-      {% for mem in bandmems.all %}
+    {% if bandmembers.count %}
+      {% for mem in bandmembers.all %}
         <div class="card">
           <div class="card-content">
             <span class="card-title">
@@ -78,7 +78,7 @@
             </span>
           </div>
           <div class="card-action">
-            <form action="" method="POST">
+            <form action="{% url 'assoc_bandmember' album.id mem.id %}" method="POST">
               {% csrf_token %}
               <button type="submit" class="btn">Add</button>
             </form>
