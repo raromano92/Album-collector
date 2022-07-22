@@ -72,6 +72,10 @@ class BandMemberUpdate(UpdateView):
   model = BandMember
   fields = ['name', 'instrument']
   
+class BandMemberDelete(DeleteView):
+  model = BandMember
+  success_url = '/band_members/'
+  
 def assoc_mem(request, album_id, bandmember_id):
   Album.objects.get(id=album_id).bandmembers.add(bandmember_id)
   return redirect('detail', album_id=album_id)
