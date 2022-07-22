@@ -64,4 +64,10 @@ class BandMemberList(ListView):
 class BandMemberDetail(DetailView):
   model = BandMember
   
-
+class BandMemberCreate(CreateView):
+  model = BandMember
+  fields = '__all__'
+  
+def assoc_mem(request, album_id, bandmember_id):
+  Album.objects.get(id=album_id).bandmembers.add(bandmember_id)
+  return redirect('detail', album_id=album_id)
